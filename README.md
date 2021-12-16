@@ -10,3 +10,10 @@
 - @apollo/client graphql
 - react-helmet-async
 - react-fontasowme
+
+## Do
+
+- [ ] Router
+- [ ] Authentication
+- [ ] Architecture
+- [ ] Styles - dark mode switch
