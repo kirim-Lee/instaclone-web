@@ -4,6 +4,9 @@
 
 - create-react-app
 - typescript
-- apollographql-client
-- styled-component
+- react-router-dom
+- styled-components
 - react-hook-form
+- @apollo/client graphql
+- react-helmet-async
+- react-fontasowme
