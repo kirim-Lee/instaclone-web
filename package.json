@@ -33,6 +33,7 @@
     "web-vitals": "^2.1.2"
   },
   "scripts": {
+    "codegen":"apollo client:codegen src/__generated__ --target typescript --outputFlat",
     "build:css": "postcss src/tailwind.css -o src/index.css",
     "watch:css": "postcss src/tailwind.css -o src/index.css",
     "start": "npm run watch:css & react-scripts start",
