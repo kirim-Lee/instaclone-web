@@ -1,4 +1,3 @@
-import CSS from 'csstype';
 import { DefaultTheme } from 'styled-component';
 import { createGlobalStyle } from 'styled-components';
 

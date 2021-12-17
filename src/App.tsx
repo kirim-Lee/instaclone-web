@@ -9,6 +9,18 @@ import { useReactiveVar } from '@apollo/client';
 import './index.css';
 import styled, { ThemeProvider } from 'styled-components';
 import { darkTheme, GlobalStyles, lightTheme } from './styles';
+import { gql } from '@apollo/client';
+
+const LOGIN_MUTATION = gql`
+  mutation login($username: String!, $password: String!) {
+    login(username:$username, password: $password) {
+      ok
+      token
+      error
+    }
+  }
+
+`;
 
 const Button = styled.button.attrs({
   className: 'rounded-md border-solid border-2 border-blue-600 text-gray-500',
