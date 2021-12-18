@@ -3,7 +3,7 @@ import { createGlobalStyle } from 'styled-components';
 
 export const lightTheme: DefaultTheme = {
   fontColor: '#2c2c2c',
-  bgColor: 'lightgray',
+  bgColor: '#fafafa',
 };
 
 export const darkTheme: DefaultTheme = {

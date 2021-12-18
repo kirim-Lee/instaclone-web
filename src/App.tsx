@@ -6,35 +6,14 @@ import {
 } from 'react-router-dom';
 import { darkModeVar, isLoggedInVar } from './local-state';
 import { useReactiveVar } from '@apollo/client';
+import { ThemeProvider } from 'styled-components';
+import { darkTheme, GlobalStyles, lightTheme } from './styles/styles';
+import Login from './screens/Login';
 import './index.css';
-import styled, { ThemeProvider } from 'styled-components';
-import { darkTheme, GlobalStyles, lightTheme } from './styles';
-import { gql } from '@apollo/client';
-
-const LOGIN_MUTATION = gql`
-  mutation login($username: String!, $password: String!) {
-    login(username:$username, password: $password) {
-      ok
-      token
-      error
-    }
-  }
-
-`;
-
-const Button = styled.button.attrs({
-  className: 'rounded-md border-solid border-2 border-blue-600 text-gray-500',
-})`
-  color: ${(props) => props.theme.color};
-`;
 
 function App() {
   const isLogged = useReactiveVar<boolean>(isLoggedInVar);
   const isDark = useReactiveVar<boolean>(darkModeVar);
-
-  const click = () => {
-    isLoggedInVar(true);
-  };
 
   return (
     <ThemeProvider theme={isDark ? darkTheme : lightTheme}>
@@ -50,7 +29,7 @@ function App() {
                 {isLogged ? (
                   <div className="border-2 border-black">로그인중</div>
                 ) : (
-                  <Button onClick={click}>감자의 비스킷 싹이나서</Button>
+                  <Login />
                 )}
               </>
             }

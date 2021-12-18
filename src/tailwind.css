@@ -3,3 +3,17 @@
 @tailwind components;
 
 @tailwind utilities;
+
+
+
+.input {
+  @apply border border-gray-200 bg-zinc-50 p-2 w-full mb-2 focus:outline-none focus:border-gray-600
+}
+
+
+
+.submit {
+  @apply rounded-sm bg-sky-400 text-white w-full h-8 disabled:bg-sky-200 
+}
+
+
