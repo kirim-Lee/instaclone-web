@@ -17,27 +17,29 @@ function App() {
 
   return (
     <ThemeProvider theme={isDark ? darkTheme : lightTheme}>
-      <GlobalStyles />
-      <Router>
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <>
-                <button onClick={() => darkModeVar(true)}>dark</button>
-                <button onClick={() => darkModeVar(false)}>light</button>
-                {isLogged ? (
-                  <div className="border-2 border-black">로그인중</div>
-                ) : (
-                  <Login />
-                )}
-              </>
-            }
-          />
-          <Route path="/same" element={<>something</>} />
-          <Route path="*" element={<Navigate to="/" replace={true} />} />
-        </Routes>
-      </Router>
+      <div className={isDark ? 'dark' : ''}>
+        <GlobalStyles />
+        <Router>
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <>
+                  <button onClick={() => darkModeVar(true)}>dark</button>
+                  <button onClick={() => darkModeVar(false)}>light</button>
+                  {isLogged ? (
+                    <div className="border-2 border-black">로그인중</div>
+                  ) : (
+                    <Login />
+                  )}
+                </>
+              }
+            />
+            <Route path="/same" element={<>something</>} />
+            <Route path="*" element={<Navigate to="/" replace={true} />} />
+          </Routes>
+        </Router>
+      </div>
     </ThemeProvider>
   );
 }

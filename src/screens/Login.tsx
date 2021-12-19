@@ -2,6 +2,9 @@ import styled from 'styled-components';
 import { faFacebookSquare } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { FlexBox, WhiteBox } from '../styles/common';
+import { lightTheme, darkTheme } from '../styles/styles';
+import { darkModeVar } from '../local-state';
+import { useReactiveVar } from '@apollo/client';
 
 const Wrapper = styled(FlexBox)`
   height: 100vh;
@@ -9,7 +12,7 @@ const Wrapper = styled(FlexBox)`
 
 const Separater = styled.div.attrs({
   className:
-    'flex justify-center items-center flex-col border-b border-solid border-gray-400 relative mb-6',
+    'flex justify-center items-center flex-col border-b border-solid relative mb-6',
 })`
   height: 1.5rem;
   span {
@@ -18,11 +21,12 @@ const Separater = styled.div.attrs({
     height: 2rem;
     background: white;
     padding: 0.5rem;
+    border-color: ${(props) => props.theme.borderColor};
   }
 `;
 
 const FacebookParagraph = styled.p.attrs({ className: 'text-center' })`
-  color: #385185;
+  color: ${(props) => props.theme.accent};
 `;
 
 const Logo = styled.h1.attrs({
@@ -37,6 +41,7 @@ const CenterBox = styled(WhiteBox)`
 `;
 
 const Login = () => {
+  const isDark = useReactiveVar<boolean>(darkModeVar);
   return (
     <Wrapper>
       <WhiteBox>
@@ -54,12 +59,15 @@ const Login = () => {
         </Separater>
         <FacebookParagraph>
           <button>
-            <FontAwesomeIcon icon={faFacebookSquare} color="#385185" />{' '}
+            <FontAwesomeIcon
+              icon={faFacebookSquare}
+              color={isDark ? darkTheme.accent : lightTheme.accent}
+            />{' '}
             Facebook으로 로그인
           </button>
         </FacebookParagraph>
         <p className="text-center">
-          <button className="text-xs text-sky-800">
+          <button className="text-xs text-sky-800 dark:text-sky-400">
             비밀번호를 잊으셨나요?
           </button>
         </p>
